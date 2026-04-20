@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Greensoft Technologies — Chicago's Nearshore Engineering Partner</title>
+  <meta name="description" content="Bridging U.S. legal certainty with Mexico's top tech talent. CST-aligned nearshore software & QA consulting with 40-60% cost reduction." />
+
+  <!-- Fonts: JetBrains Mono (Google), brand fonts local -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    @font-face { font-family:'THICCCBOI'; src:url('fonts/thicccboi/fonts/Webfont/THICCCBOI-Thin.woff2') format('woff2'); font-weight:100; font-display:swap; }
+    @font-face { font-family:'THICCCBOI'; src:url('fonts/thicccboi/fonts/Webfont/THICCCBOI-Light.woff2') format('woff2'); font-weight:300; font-display:swap; }
+    @font-face { font-family:'THICCCBOI'; src:url('fonts/thicccboi/fonts/Webfont/THICCCBOI-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
+    @font-face { font-family:'THICCCBOI'; src:url('fonts/thicccboi/fonts/Webfont/THICCCBOI-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
+    @font-face { font-family:'THICCCBOI'; src:url('fonts/thicccboi/fonts/Webfont/THICCCBOI-SemiBold.woff2') format('woff2'); font-weight:600; font-display:swap; }
+    @font-face { font-family:'THICCCBOI'; src:url('fonts/thicccboi/fonts/Webfont/THICCCBOI-Bold.woff2') format('woff2'); font-weight:700; font-display:swap; }
+    @font-face { font-family:'THICCCBOI'; src:url('fonts/thicccboi/fonts/Webfont/THICCCBOI-ExtraBold.woff2') format('woff2'); font-weight:800; font-display:swap; }
+    @font-face { font-family:'THICCCBOI'; src:url('fonts/thicccboi/fonts/Webfont/THICCCBOI-Black.woff2') format('woff2'); font-weight:900; font-display:swap; }
+    @font-face { font-family:'Bebas Neue'; src:url('fonts/bebas_neue/BebasNeue-Regular.woff2') format('woff2'), url('fonts/bebas_neue/BebasNeue-Regular.woff') format('woff'); font-weight:400; font-display:swap; }
+  </style>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Bebas Neue', 'THICCCBOI', 'sans-serif'],
+            body: ['THICCCBOI', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            gs: {
+              950: '#010d0d',
+              900: '#031210',
+              850: '#061a17',
+              800: '#0a221e',
+              750: '#0e2e28',
+              700: '#143d35',
+              600: '#1a5045',
+              500: '#2DD4C0',
+              400: '#3EDB8A',
+              300: '#7EEAC4',
+              200: '#b2f5e4',
+              100: '#d6faf2',
+              50:  '#edfcf8',
+            },
+            sky: { 400: '#7BD4F5', 300: '#a5e4fa' },
+            amber: { 400: '#fbbf24', 300: '#fcd34d' },
+          },
+          backgroundImage: {
+            'grid-pattern': "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='%230e2e28' stroke-width='1'/%3E%3C/svg%3E\")",
+            'hero-mesh': 'radial-gradient(ellipse 80% 60% at 60% 40%, rgba(45,212,192,0.12) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 20% 70%, rgba(62,219,138,0.08) 0%, transparent 50%)',
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) forwards',
+            'fade-in': 'fadeIn 0.6s ease forwards',
+            'line-grow': 'lineGrow 1.2s cubic-bezier(0.22,1,0.36,1) forwards',
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4,0,0.6,1) infinite',
+            'shimmer': 'shimmer 2.5s linear infinite',
+            'counter': 'counter 2s ease-out forwards',
+          },
+          keyframes: {
+            fadeUp: { from: { opacity: '0', transform: 'translateY(28px)' }, to: { opacity: '1', transform: 'translateY(0)' } },
+            fadeIn: { from: { opacity: '0' }, to: { opacity: '1' } },
+            lineGrow: { from: { transform: 'scaleX(0)' }, to: { transform: 'scaleX(1)' } },
+            float: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-12px)' } },
+            shimmer: { from: { backgroundPosition: '-200% center' }, to: { backgroundPosition: '200% center' } },
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'THICCCBOI', sans-serif;
+      background-color: #031210;
+      color: #e0f7f4;
+      overflow-x: hidden;
+    }
+
+    /* Noise texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.35;
+    }
+
+    /* Reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* Nav blur */
+    .nav-blur {
+      backdrop-filter: blur(20px) saturate(1.5);
+      -webkit-backdrop-filter: blur(20px) saturate(1.5);
+    }
+
+    /* Gradient text */
+    .text-gradient {
+      background: linear-gradient(135deg, #2DD4C0 0%, #3EDB8A 60%, #3EDB6E 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .text-gradient-gold {
+      background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Shimmer text */
+    .text-shimmer {
+      background: linear-gradient(90deg, #2DD4C0 0%, #7EEAC4 25%, #3EDB8A 50%, #2DD4C0 75%, #7BD4F5 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 3s linear infinite;
+    }
+
+    /* Glow effect */
+    .glow-green {
+      box-shadow: 0 0 40px rgba(45, 212, 192, 0.15), 0 0 80px rgba(45, 212, 192, 0.05);
+    }
+    .glow-green-sm {
+      box-shadow: 0 0 20px rgba(45, 212, 192, 0.2);
+    }
+
+    /* Card hover */
+    .card-hover {
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      border-color: rgba(45, 212, 192, 0.4);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(45, 212, 192, 0.08);
+    }
+
+    /* Animated border */
+    .border-animated {
+      position: relative;
+    }
+    .border-animated::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(45, 212, 192, 0.6), rgba(45, 212, 192, 0.1), rgba(45, 212, 192, 0.4));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    /* Process line animation */
+    .process-line {
+      position: relative;
+    }
+    .process-line::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(45,212,192,0.6), rgba(45,212,192,0.1));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .process-line.animate::after {
+      transform: scaleX(1);
+    }
+
+    /* Counter animation */
+    .counter-val {
+      display: inline-block;
+    }
+
+    /* Stats bar */
+    .stat-bar {
+      height: 3px;
+      border-radius: 2px;
+      background: rgba(45,212,192,0.15);
+      overflow: hidden;
+    }
+    .stat-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #2DD4C0, #3EDB8A);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .stat-bar-fill.animate {
+      transform: scaleX(1);
+    }
+
+    /* Timeline dot pulse */
+    @keyframes dotPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(45,212,192,0.4); }
+      50% { box-shadow: 0 0 0 8px rgba(45,212,192,0); }
+    }
+    .dot-pulse { animation: dotPulse 2s ease infinite; }
+
+    /* Comparison table row hover */
+    .comp-row {
+      transition: background 0.2s ease;
+    }
+    .comp-row:hover { background: rgba(45,212,192,0.04); }
+
+    /* Form input focus */
+    .gs-input {
+      background: rgba(16, 38, 22, 0.6);
+      border: 1px solid rgba(45, 212, 192, 0.15);
+      color: #e8f5ec;
+      border-radius: 8px;
+      padding: 12px 16px;
+      width: 100%;
+      font-family: 'THICCCBOI', sans-serif;
+      font-size: 15px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      outline: none;
+    }
+    .gs-input:focus {
+      border-color: rgba(45, 212, 192, 0.5);
+      box-shadow: 0 0 0 3px rgba(45, 212, 192, 0.08);
+      background: rgba(16, 38, 22, 0.9);
+    }
+    .gs-input::placeholder { color: rgba(134, 239, 172, 0.35); }
+    .gs-input option { background: #0c1f10; }
+
+    /* CTA Button */
+    .btn-primary {
+      background: linear-gradient(135deg, #1ab8a8 0%, #2DD4C0 50%, #3EDB8A 100%);
+      color: #040c06;
+      font-family: 'Bebas Neue', 'THICCCBOI', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.04em;
+      padding: 14px 32px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.15) 100%);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(45,212,192,0.35);
+      filter: brightness(1.05);
+    }
+    .btn-primary:hover::after { opacity: 1; }
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-outline {
+      background: transparent;
+      color: #2DD4C0;
+      font-family: 'Bebas Neue', 'THICCCBOI', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.04em;
+      padding: 13px 32px;
+      border-radius: 8px;
+      border: 1px solid rgba(45,212,192,0.35);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-outline:hover {
+      background: rgba(45,212,192,0.08);
+      border-color: rgba(45,212,192,0.6);
+      box-shadow: 0 0 20px rgba(45,212,192,0.12);
+    }
+
+    /* Hero orb */
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #040c06; }
+    ::-webkit-scrollbar-thumb { background: #16381e; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #2DD4C0; }
+
+    /* Mobile menu */
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+
+    /* Float animation */
+    @keyframes floatOrb {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -20px) scale(1.05); }
+      66% { transform: translate(-20px, 15px) scale(0.97); }
+    }
+    .orb-animate { animation: floatOrb 8s ease-in-out infinite; }
+    .orb-animate-2 { animation: floatOrb 11s ease-in-out infinite reverse; }
+
+    /* Bridge visual */
+    @keyframes dashFlow {
+      to { stroke-dashoffset: -60; }
+    }
+    .bridge-dash { animation: dashFlow 2s linear infinite; }
+
+    /* Tag chip */
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #2DD4C0;
+      opacity: 0.8;
+    }
+
+    /* Bebas Neue h2/h3 display headings */
+    .font-display { font-family: 'Bebas Neue', 'THICCCBOI', sans-serif; letter-spacing: 0.03em; }
+    h1.font-display { font-family: 'Bebas Neue', sans-serif; }
+    /* ThicccBoi for card headings (h3) — more friendly */
+    .card-heading { font-family: 'THICCCBOI', sans-serif; font-weight: 700; }
+
+    /* ── Marquee ── */
+    @keyframes marqueeScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .marquee-inner {
+      animation: marqueeScroll 45s linear infinite;
+    }
+    .marquee-outer:hover .marquee-inner {
+      animation-play-state: paused;
+    }
+    @keyframes marqueeScrollRev {
+      from { transform: translateX(-50%); }
+      to   { transform: translateX(0); }
+    }
+    .marquee-inner-rev {
+      animation: marqueeScrollRev 55s linear infinite;
+    }
+    .marquee-outer:hover .marquee-inner-rev {
+      animation-play-state: paused;
+    }
+
+    /* ── Partner logos ── */
+    .logo-img {
+      filter: grayscale(1) brightness(1.8) opacity(0.55);
+      transition: filter 0.35s ease;
+    }
+    .logo-cell:hover .logo-img {
+      filter: grayscale(0) brightness(1) opacity(1);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 lg:h-18">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <img src="icononly_transparent_nobuffer.png" alt="Greensoft" class="w-10 h-10 object-contain group-hover:scale-105 transition-transform duration-300" />
+        <div>
+          <span class="font-display font-700 text-gs-50 text-lg leading-none">Greensoft</span>
+          <span class="block font-mono text-gs-400 text-[10px] tracking-widest leading-none mt-0.5">CONSULTING & RECRUITMENT</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="#services" class="font-body text-sm text-gs-300 hover:text-gs-400 transition-colors">Services</a>
+        <a href="#advantage" class="font-body text-sm text-gs-300 hover:text-gs-400 transition-colors">Nearshore</a>
+        <a href="#structure" class="font-body text-sm text-gs-300 hover:text-gs-400 transition-colors">Our Model</a>
+        <a href="#process" class="font-body text-sm text-gs-300 hover:text-gs-400 transition-colors">Process</a>
+        <a href="#contact" class="font-body text-sm text-gs-300 hover:text-gs-400 transition-colors">Contact</a>
+      </div>
+
+      <!-- CTA -->
+      <div class="hidden lg:flex items-center gap-3">
+        <span class="font-mono text-[11px] text-gs-400 tracking-widest opacity-60">Chicago · Leon</span>
+        <a href="#contact" class="btn-primary text-sm py-2.5 px-5">Request Consultation</a>
+      </div>
+
+      <!-- Mobile Toggle -->
+      <button id="nav-toggle" class="lg:hidden p-2 rounded-lg border border-gs-700 text-gs-300" aria-label="Toggle menu">
+        <svg id="nav-icon-open" width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M3 5H17M3 10H17M3 15H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <svg id="nav-icon-close" class="hidden" width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="lg:hidden flex-col border-t border-gs-800" style="background:#031210;">
+    <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-4">
+      <a href="#services" class="font-body text-gs-200 py-2 border-b border-gs-800/50">Services</a>
+      <a href="#advantage" class="font-body text-gs-200 py-2 border-b border-gs-800/50">Nearshore Advantage</a>
+      <a href="#structure" class="font-body text-gs-200 py-2 border-b border-gs-800/50">Our Model</a>
+      <a href="#process" class="font-body text-gs-200 py-2 border-b border-gs-800/50">Process</a>
+      <a href="#contact" class="font-body text-gs-200 py-2 border-b border-gs-800/50">Contact</a>
+      <a href="#contact" class="btn-primary text-center mt-2">Request Consultation</a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════
+     HERO SECTION
+═══════════════════════════════════════════ -->
+<section id="hero" class="relative min-h-screen flex items-center overflow-hidden bg-gs-900">
+  <!-- Background elements -->
+  <div class="absolute inset-0 bg-grid-pattern opacity-100"></div>
+  <div class="absolute inset-0 bg-hero-mesh"></div>
+  <!-- Circuit board banner overlay (brand asset) -->
+  <div class="absolute inset-0 opacity-[0.07] pointer-events-none" style="background-image:url('assets/gallery2/design-e6d589ab-e08a-43cf-b4b4-f97e277ec36f.png'); background-size:cover; background-position:center;"></div>
+
+  <!-- Orbs -->
+  <div class="hero-orb orb-animate w-96 h-96 bg-gs-600/20 -top-20 right-1/4"></div>
+  <div class="hero-orb orb-animate-2 w-64 h-64 bg-gs-500/10 top-1/2 right-10"></div>
+  <div class="hero-orb w-48 h-48 bg-gs-600/15 bottom-20 left-1/4 orb-animate" style="animation-delay:-3s"></div>
+
+  <!-- Floating badges -->
+  <div class="absolute top-28 right-8 lg:right-16 hidden md:flex flex-col gap-3 items-end">
+    <div class="chip bg-gs-800/80 border border-gs-700/50 text-gs-400 backdrop-blur-sm animate-float" style="animation-delay:0s">
+      <span class="w-1.5 h-1.5 rounded-full bg-gs-500 animate-pulse"></span>Chicago LLC
+    </div>
+    <div class="chip bg-gs-800/80 border border-gs-700/50 text-gs-400 backdrop-blur-sm animate-float" style="animation-delay:0.5s">
+      <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>CST Aligned
+    </div>
+    <div class="chip bg-gs-800/80 border border-gs-700/50 text-gs-400 backdrop-blur-sm animate-float" style="animation-delay:1s">
+      <span class="w-1.5 h-1.5 rounded-full bg-gs-400 animate-pulse"></span>40-60% Cost Reduction
+    </div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-8 pt-28 pb-16">
+    <div class="max-w-4xl">
+      <!-- Label -->
+      <div class="flex items-center gap-3 mb-8 reveal">
+        <div class="section-label">Local Partner · Global Talent</div>
+        <div class="h-px flex-1 max-w-16 bg-gradient-to-r from-gs-500/60 to-transparent"></div>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="font-display font-400 text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-[0.9] tracking-wide mb-6 reveal reveal-delay-1" style="font-family:'Bebas Neue',sans-serif; letter-spacing:0.02em;">
+        Your Engineering<br/>
+        Partner in <span class="text-gradient">Chicago,</span><br/>
+        <span class="text-gs-300/70">Powered by</span><br/>
+        <span class="text-shimmer">Mexico's Top Tech Talent.</span>
+      </h1>
+
+      <!-- Sub-headline -->
+      <p class="font-body text-lg md:text-xl text-gs-300/80 max-w-2xl leading-relaxed mb-10 reveal reveal-delay-2">
+        Bridging the gap with CST alignment, U.S. legal security, and world-class engineering — giving you the confidence of a local firm with the economics of nearshore delivery.
+      </p>
+
+      <!-- CTA Row -->
+      <div class="flex flex-wrap items-center gap-4 reveal reveal-delay-3">
+        <a href="#contact" class="btn-primary text-base">
+          Request a Consultation
+          <svg class="inline ml-2 w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#services" class="btn-outline text-base">
+          Explore Services
+        </a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="mt-16 pt-10 border-t border-gs-800/60 grid grid-cols-2 md:grid-cols-4 gap-8 reveal reveal-delay-4">
+        <div>
+          <div class="font-display font-700 text-3xl text-gs-400 counter-stat" data-target="60">0</div>
+          <div class="text-sm text-gs-300/50 mt-1">% Cost Reduction</div>
+        </div>
+        <div>
+          <div class="font-display font-700 text-3xl text-gs-400 counter-stat" data-target="0">0</div>
+          <div class="text-sm text-gs-300/50 mt-1 relative">hr Timezone Gap <span class="text-gs-500 text-xs">(CST)</span></div>
+        </div>
+        <div>
+          <div class="font-display font-700 text-3xl text-gs-400"><span class="counter-stat" data-target="48">0</span>h</div>
+          <div class="text-sm text-gs-300/50 mt-1">Time-to-First-Candidate</div>
+        </div>
+        <div>
+          <div class="font-display font-700 text-3xl text-gs-400"><span class="counter-stat" data-target="2">0</span></div>
+          <div class="text-sm text-gs-300/50 mt-1">Countries. One Partner.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     PARTNERS & CLIENTS
+═══════════════════════════════════════════ -->
+<section id="clients" class="py-20 lg:py-24 relative overflow-hidden" style="background:#000;">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gs-700/40 to-transparent"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-14 reveal">
+      <div class="section-label mb-3">Partners & Clients</div>
+      <h2 class="font-display text-4xl lg:text-5xl text-gs-50">
+        Trusted by <span class="text-gradient">Industry Leaders</span>
+      </h2>
+      <p class="mt-3 font-body text-gs-300/50 max-w-md mx-auto">Companies that have placed their trust in Greensoft's engineering and recruitment expertise.</p>
+    </div>
+
+    <!-- Logo grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-white/5 rounded-2xl overflow-hidden border border-white/5">
+
+      <div class="logo-cell group bg-black flex items-center justify-center px-8 py-8 min-h-[100px] hover:bg-gs-900/80 transition-colors duration-300">
+        <img src="assets/logos/Walmart.png" alt="Walmart" class="max-h-14 max-w-full object-contain logo-img" />
+      </div>
+
+      <div class="logo-cell group bg-black flex items-center justify-center px-8 py-8 min-h-[100px] hover:bg-gs-900/80 transition-colors duration-300">
+        <img src="assets/logos/Coca-Cola_Femsa.png" alt="Coca-Cola FEMSA" class="max-h-14 max-w-full object-contain logo-img" />
+      </div>
+
+      <div class="logo-cell group bg-black flex items-center justify-center px-8 py-8 min-h-[100px] hover:bg-gs-900/80 transition-colors duration-300">
+        <img src="assets/logos/santander.svg" alt="Santander" class="max-h-14 max-w-full object-contain logo-img" />
+      </div>
+
+      <div class="logo-cell group bg-black flex items-center justify-center px-8 py-8 min-h-[100px] hover:bg-gs-900/80 transition-colors duration-300">
+        <img src="assets/logos/tcs-light-logo.png" alt="TCS" class="max-h-14 max-w-full object-contain logo-img" />
+      </div>
+
+      <div class="logo-cell group bg-black flex items-center justify-center px-8 py-8 min-h-[100px] hover:bg-gs-900/80 transition-colors duration-300">
+        <img src="assets/logos/Hexaware_Technologies_Logo.png" alt="Hexaware" class="max-h-14 max-w-full object-contain logo-img" />
+      </div>
+
+      <div class="logo-cell group bg-black flex items-center justify-center px-8 py-8 min-h-[100px] hover:bg-gs-900/80 transition-colors duration-300">
+        <img src="assets/logos/Zurich.png" alt="Zurich" class="max-h-14 max-w-full object-contain logo-img" />
+      </div>
+
+      <div class="logo-cell group bg-black flex items-center justify-center px-8 py-8 min-h-[100px] hover:bg-gs-900/80 transition-colors duration-300">
+        <img src="assets/logos/ntt.png" alt="NTT" class="max-h-14 max-w-full object-contain logo-img" />
+      </div>
+
+      <div class="logo-cell group bg-black flex items-center justify-center px-8 py-8 min-h-[100px] hover:bg-gs-900/80 transition-colors duration-300">
+        <img src="assets/logos/air_canada.png" alt="Air Canada" class="w-4/5 max-h-16 object-contain logo-img" />
+      </div>
+
+      <div class="logo-cell group bg-black flex items-center justify-center px-8 py-8 min-h-[100px] hover:bg-gs-900/80 transition-colors duration-300">
+        <img src="assets/logos/nike.png" alt="Nike" class="max-h-14 max-w-full object-contain logo-img" />
+      </div>
+
+      <div class="logo-cell group bg-black flex items-center justify-center px-8 py-8 min-h-[100px] hover:bg-gs-900/80 transition-colors duration-300">
+        <img src="assets/logos/chubb.jpeg" alt="Chubb" class="max-h-14 max-w-full object-contain" style="filter: invert(1) grayscale(1) brightness(1.8) opacity(0.55); transition: filter 0.35s ease;" onmouseover="this.style.filter='invert(1) grayscale(0) brightness(1) opacity(1)'" onmouseout="this.style.filter='invert(1) grayscale(1) brightness(1.8) opacity(0.55)'" />
+      </div>
+
+      <div class="logo-cell group bg-black flex items-center justify-center px-8 py-8 min-h-[100px] hover:bg-gs-900/80 transition-colors duration-300">
+        <img src="assets/logos/Coppel.svg" alt="Coppel" class="max-h-14 max-w-full object-contain logo-img" />
+      </div>
+
+      <div class="logo-cell group bg-black flex items-center justify-center px-8 py-8 min-h-[100px] hover:bg-gs-900/80 transition-colors duration-300">
+        <img src="assets/logos/Banbajio.jpg" alt="Banbajío" class="max-h-14 max-w-full object-contain logo-img" />
+      </div>
+
+      <div class="logo-cell group bg-black flex items-center justify-center px-8 py-8 min-h-[100px] hover:bg-gs-900/80 transition-colors duration-300">
+        <img src="assets/logos/Gep.png" alt="GEP" class="max-h-14 max-w-full object-contain logo-img" />
+      </div>
+
+      <div class="logo-cell group bg-black flex items-center justify-center px-8 py-8 min-h-[100px] hover:bg-gs-900/80 transition-colors duration-300">
+        <img src="assets/logos/qa tech.jpg" alt="QA Tech" class="max-h-14 max-w-full object-contain" style="filter: invert(1) grayscale(1) brightness(1.8) opacity(0.55); transition: filter 0.35s ease;" onmouseover="this.style.filter='invert(1) grayscale(0) brightness(1) opacity(1)'" onmouseout="this.style.filter='invert(1) grayscale(1) brightness(1.8) opacity(0.55)'" />
+      </div>
+
+    </div>
+  </div>
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gs-700/40 to-transparent"></div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     DUAL MODEL — SERVICES
+═══════════════════════════════════════════ -->
+<section id="services" class="py-24 lg:py-32 relative overflow-hidden" style="background:#000;">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gs-600/50 to-transparent"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <div class="section-label mb-4 reveal">Our Dual Model</div>
+      <h2 class="font-display font-700 text-4xl lg:text-5xl text-gs-50 reveal reveal-delay-1">
+        Two Pillars. One Mission.
+      </h2>
+      <p class="mt-4 font-body text-gs-300/60 max-w-xl mx-auto text-lg reveal reveal-delay-2">
+        Whether you need to scale your team or elevate your software quality, Greensoft delivers with precision.
+      </p>
+    </div>
+
+    <!-- Dual Cards -->
+    <div class="grid lg:grid-cols-2 gap-6 lg:gap-8">
+
+      <!-- Card 1 — Tech Recruitment -->
+      <div class="border-animated card-hover rounded-2xl bg-gs-850/60 border border-gs-700/40 p-8 lg:p-10 reveal reveal-delay-1" style="backdrop-filter: blur(10px);">
+        <!-- Icon -->
+        <div class="w-14 h-14 rounded-xl bg-gs-800 border border-gs-700/50 flex items-center justify-center mb-6 group-hover:border-gs-500 transition-colors">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <circle cx="11" cy="9" r="4" stroke="#2DD4C0" stroke-width="1.5"/>
+            <path d="M4 23c0-3.314 3.134-6 7-6s7 2.686 7 6" stroke="#2DD4C0" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M19 13l5 5m0-5l-5 5" stroke="#3EDB8A" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div class="chip bg-gs-700/50 border border-gs-600/40 text-gs-400 mb-4">Tech Recruitment</div>
+
+        <h3 class="font-display font-700 text-2xl lg:text-3xl text-gs-50 mb-4 leading-tight">
+          Elite Engineering Talent,<br/>
+          <span class="text-gradient">On-Demand.</span>
+        </h3>
+
+        <p class="font-body text-gs-300/65 leading-relaxed mb-8">
+          We source, vet, and place senior engineers from Mexico's deepest talent pools — all with U.S. contract certainty and direct timezone overlap. Faster hires, lower cost, zero compliance headaches.
+        </p>
+
+        <!-- Features list -->
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start gap-3">
+            <span class="w-5 h-5 rounded-full bg-gs-600/50 border border-gs-500/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 5l2 2 4-4" stroke="#3EDB8A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="text-sm text-gs-300/70">Senior devs, QA engineers, DevOps, data engineers</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-5 h-5 rounded-full bg-gs-600/50 border border-gs-500/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 5l2 2 4-4" stroke="#3EDB8A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="text-sm text-gs-300/70">48-hour first-candidate delivery</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-5 h-5 rounded-full bg-gs-600/50 border border-gs-500/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 5l2 2 4-4" stroke="#3EDB8A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="text-sm text-gs-300/70">Contract via Chicago LLC — legally compliant</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-5 h-5 rounded-full bg-gs-600/50 border border-gs-500/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 5l2 2 4-4" stroke="#3EDB8A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="text-sm text-gs-300/70">40–60% savings vs. local U.S. hiring</span>
+          </li>
+        </ul>
+
+        <a href="#contact" class="btn-outline w-full text-center block">Hire Engineering Talent →</a>
+      </div>
+
+      <!-- Card 2 — QA Consulting -->
+      <div class="border-animated card-hover rounded-2xl bg-gs-850/60 border border-gs-700/40 p-8 lg:p-10 reveal reveal-delay-2" style="backdrop-filter: blur(10px);">
+        <!-- Icon -->
+        <div class="w-14 h-14 rounded-xl bg-gs-800 border border-gs-700/50 flex items-center justify-center mb-6">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect x="4" y="4" width="20" height="20" rx="3" stroke="#2DD4C0" stroke-width="1.5"/>
+            <path d="M9 14l3 3 7-7" stroke="#3EDB8A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 8h10" stroke="#2DD4C0" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+            <path d="M9 20h6" stroke="#2DD4C0" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+          </svg>
+        </div>
+
+        <div class="chip bg-amber-400/10 border border-amber-400/20 text-amber-300 mb-4">QA Consulting</div>
+
+        <h3 class="font-display font-700 text-2xl lg:text-3xl text-gs-50 mb-4 leading-tight">
+          Software Quality You Can<br/>
+          <span class="text-gradient-gold">Ship With Confidence.</span>
+        </h3>
+
+        <p class="font-body text-gs-300/65 leading-relaxed mb-8">
+          From manual exploratory testing to full automated CI/CD pipelines, our QA teams embed directly into your engineering org. Prevent defects before they reach production — at nearshore speed and cost.
+        </p>
+
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start gap-3">
+            <span class="w-5 h-5 rounded-full bg-amber-400/10 border border-amber-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 5l2 2 4-4" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="text-sm text-gs-300/70">Manual, automated & performance testing</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-5 h-5 rounded-full bg-amber-400/10 border border-amber-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 5l2 2 4-4" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="text-sm text-gs-300/70">CI/CD pipeline integration (GitHub Actions, Jenkins)</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-5 h-5 rounded-full bg-amber-400/10 border border-amber-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 5l2 2 4-4" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="text-sm text-gs-300/70">Selenium, Cypress, Playwright, Postman</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-5 h-5 rounded-full bg-amber-400/10 border border-amber-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 5l2 2 4-4" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="text-sm text-gs-300/70">Dedicated QA leads with U.S. Agile experience</span>
+          </li>
+        </ul>
+
+        <a href="#contact" class="btn-outline w-full text-center block" style="color: #fbbf24; border-color: rgba(251,191,36,0.35);">Start QA Engagement →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     NEARSHORE ADVANTAGE
+═══════════════════════════════════════════ -->
+<section id="advantage" class="py-24 lg:py-32 relative bg-gs-950/60">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gs-600/40 to-transparent"></div>
+
+  <!-- Background grid + glow -->
+  <div class="absolute inset-0 bg-grid-pattern opacity-60"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-gs-600/8 blur-[120px] pointer-events-none"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <div class="section-label mb-4 reveal">Why Nearshore</div>
+      <h2 class="font-display font-700 text-4xl lg:text-5xl text-gs-50 reveal reveal-delay-1">
+        The <span class="text-gradient">Nearshore Advantage</span>
+      </h2>
+      <p class="mt-4 font-body text-gs-300/60 max-w-xl mx-auto text-lg reveal reveal-delay-2">
+        Everything you get with onshore, at a fraction of the cost — without the offshore distance penalty.
+      </p>
+    </div>
+
+    <!-- 3-column advantage cards -->
+    <div class="grid md:grid-cols-3 gap-6 mb-16">
+      <!-- Timezone -->
+      <div class="relative rounded-2xl bg-gs-800/40 border border-gs-700/30 p-7 reveal reveal-delay-1 card-hover" style="backdrop-filter:blur(8px)">
+        <div class="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl bg-gradient-to-r from-gs-500/60 to-gs-600/20"></div>
+        <div class="w-12 h-12 rounded-lg bg-gs-700/60 border border-gs-600/40 flex items-center justify-center mb-5">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <circle cx="11" cy="11" r="8.5" stroke="#2DD4C0" stroke-width="1.5"/>
+            <path d="M11 6V11L14 13" stroke="#3EDB8A" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-700 text-xl text-gs-50 mb-2">Zero Timezone Gap</h3>
+        <div class="font-mono text-xs text-gs-500 mb-3 tracking-wider">CST · CHICAGO = LEÓN</div>
+        <p class="text-sm text-gs-300/60 leading-relaxed">Your team in Leon works the same hours as your Chicago office. No late-night calls. No delayed standups. Real-time collaboration, every day.</p>
+        <div class="mt-5 pt-5 border-t border-gs-700/30">
+          <div class="flex items-center justify-between text-xs font-mono">
+            <span class="text-gs-400/50">Chicago</span>
+            <span class="text-gs-500">9am–6pm CST</span>
+            <span class="text-gs-400/50">Leon</span>
+          </div>
+          <div class="stat-bar mt-2">
+            <div class="stat-bar-fill" style="width: 100%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cultural Proximity -->
+      <div class="relative rounded-2xl bg-gs-800/40 border border-gs-700/30 p-7 reveal reveal-delay-2 card-hover" style="backdrop-filter:blur(8px)">
+        <div class="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl bg-gradient-to-r from-gs-500/60 to-gs-600/20"></div>
+        <div class="w-12 h-12 rounded-lg bg-gs-700/60 border border-gs-600/40 flex items-center justify-center mb-5">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M11 3C6.6 3 3 6.6 3 11s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z" stroke="#2DD4C0" stroke-width="1.5"/>
+            <path d="M3 11h16M11 3c-2 2.5-3 5-3 8s1 5.5 3 8M11 3c2 2.5 3 5 3 8s-1 5.5-3 8" stroke="#3EDB8A" stroke-width="1.2" opacity="0.7"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-700 text-xl text-gs-50 mb-2">Cultural Proximity</h3>
+        <div class="font-mono text-xs text-gs-500 mb-3 tracking-wider">AGILE · ENGLISH-FLUENT</div>
+        <p class="text-sm text-gs-300/60 leading-relaxed">Mexican engineers share U.S. work culture, Agile practices, and business English fluency — built through years of working with North American companies.</p>
+        <div class="mt-5 pt-5 border-t border-gs-700/30">
+          <div class="grid grid-cols-3 gap-2 text-center">
+            <div class="rounded-lg bg-gs-700/30 p-2">
+              <div class="font-mono text-xs text-gs-400">English</div>
+              <div class="font-display font-700 text-sm text-gs-300 mt-0.5">B2+</div>
+            </div>
+            <div class="rounded-lg bg-gs-700/30 p-2">
+              <div class="font-mono text-xs text-gs-400">Agile</div>
+              <div class="font-display font-700 text-sm text-gs-300 mt-0.5">Native</div>
+            </div>
+            <div class="rounded-lg bg-gs-700/30 p-2">
+              <div class="font-mono text-xs text-gs-400">USMCA</div>
+              <div class="font-display font-700 text-sm text-gs-300 mt-0.5">Ready</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cost Efficiency -->
+      <div class="relative rounded-2xl bg-gs-800/40 border border-gs-700/30 p-7 reveal reveal-delay-3 card-hover" style="backdrop-filter:blur(8px)">
+        <div class="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl bg-gradient-to-r from-amber-400/60 to-amber-400/10"></div>
+        <div class="w-12 h-12 rounded-lg bg-gs-700/60 border border-gs-600/40 flex items-center justify-center mb-5">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M11 3v16M7 7h5.5a2.5 2.5 0 010 5H7m0 0h6a2.5 2.5 0 010 5H7" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-700 text-xl text-gs-50 mb-2">40–60% Cost Reduction</h3>
+        <div class="font-mono text-xs text-amber-400/70 mb-3 tracking-wider">REAL SAVINGS · NO TRADE-OFF</div>
+        <p class="text-sm text-gs-300/60 leading-relaxed">Senior engineers at nearshore rates. No hidden fees, no visa complexity. Your Chicago LLC partner handles compliance so you can focus on building product.</p>
+        <div class="mt-5 pt-5 border-t border-gs-700/30 space-y-2">
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-gs-400/60">U.S. Senior Dev</span>
+            <span class="font-mono text-gs-300">$160k+/yr</span>
+          </div>
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-gs-400/60">Greensoft Nearshore</span>
+            <span class="font-mono text-amber-300">~$70k/yr</span>
+          </div>
+          <div class="stat-bar mt-2">
+            <div class="stat-bar-fill" style="width: 56%"></div>
+          </div>
+          <div class="text-right font-mono text-[10px] text-amber-400/60">56% average savings</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nearshore vs Offshore Comparison Table -->
+    <div class="rounded-2xl border border-gs-700/40 overflow-hidden reveal reveal-delay-1">
+      <div class="bg-gs-800/60 px-6 py-4 border-b border-gs-700/40 flex items-center justify-between">
+        <h3 class="font-display font-700 text-lg text-gs-50">Nearshore vs. Offshore vs. Onshore</h3>
+        <span class="font-mono text-xs text-gs-400/50 tracking-widest">COMPARISON TABLE</span>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="bg-gs-850/80">
+              <th class="text-left px-6 py-4 font-mono text-xs text-gs-400/50 tracking-widest">CRITERIA</th>
+              <th class="px-4 py-4 font-display font-700 text-sm text-gs-400">
+                <div class="flex items-center justify-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-gs-500"></span> Nearshore (Us)
+                </div>
+              </th>
+              <th class="px-4 py-4 font-display font-600 text-sm text-gs-300/40">Offshore</th>
+              <th class="px-4 py-4 font-display font-600 text-sm text-gs-300/40">Onshore U.S.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="comp-row border-t border-gs-800/50">
+              <td class="px-6 py-4 text-sm text-gs-300/70">Timezone Overlap</td>
+              <td class="px-4 py-4 text-center"><span class="font-mono text-xs text-gs-400 bg-gs-600/30 px-2 py-1 rounded">100% CST Match</span></td>
+              <td class="px-4 py-4 text-center text-sm text-gs-300/40">4–12hr gap</td>
+              <td class="px-4 py-4 text-center text-sm text-gs-300/40">100%</td>
+            </tr>
+            <tr class="comp-row border-t border-gs-800/50">
+              <td class="px-6 py-4 text-sm text-gs-300/70">Average Cost (Senior Dev)</td>
+              <td class="px-4 py-4 text-center"><span class="font-mono text-xs text-amber-300 bg-amber-400/10 px-2 py-1 rounded">$60–80k/yr</span></td>
+              <td class="px-4 py-4 text-center text-sm text-gs-300/40">$35–55k/yr</td>
+              <td class="px-4 py-4 text-center text-sm text-gs-300/40">$150–200k/yr</td>
+            </tr>
+            <tr class="comp-row border-t border-gs-800/50">
+              <td class="px-6 py-4 text-sm text-gs-300/70">Cultural Alignment</td>
+              <td class="px-4 py-4 text-center"><span class="text-gs-400">High</span></td>
+              <td class="px-4 py-4 text-center text-sm text-gs-300/40">Low–Medium</td>
+              <td class="px-4 py-4 text-center text-sm text-gs-300/40">High</td>
+            </tr>
+            <tr class="comp-row border-t border-gs-800/50">
+              <td class="px-6 py-4 text-sm text-gs-300/70">Legal & Compliance</td>
+              <td class="px-4 py-4 text-center"><span class="font-mono text-xs text-gs-400 bg-gs-600/30 px-2 py-1 rounded">U.S. LLC ✓</span></td>
+              <td class="px-4 py-4 text-center text-sm text-gs-300/40">Complex</td>
+              <td class="px-4 py-4 text-center text-sm text-gs-300/40">Simple</td>
+            </tr>
+            <tr class="comp-row border-t border-gs-800/50">
+              <td class="px-6 py-4 text-sm text-gs-300/70">Real-time Collaboration</td>
+              <td class="px-4 py-4 text-center"><span class="text-gs-400">Full</span></td>
+              <td class="px-4 py-4 text-center text-sm text-gs-300/40">Async-heavy</td>
+              <td class="px-4 py-4 text-center text-sm text-gs-300/40">Full</td>
+            </tr>
+            <tr class="comp-row border-t border-gs-800/50">
+              <td class="px-6 py-4 text-sm text-gs-300/70">Time to First Hire</td>
+              <td class="px-4 py-4 text-center"><span class="font-mono text-xs text-amber-300 bg-amber-400/10 px-2 py-1 rounded">48 hours</span></td>
+              <td class="px-4 py-4 text-center text-sm text-gs-300/40">1–4 weeks</td>
+              <td class="px-4 py-4 text-center text-sm text-gs-300/40">4–12 weeks</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     BUSINESS STRUCTURE — THE BRIDGE
+═══════════════════════════════════════════ -->
+<section id="structure" class="py-24 lg:py-32 relative overflow-hidden" style="background:#000;">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gs-600/40 to-transparent"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <div class="section-label mb-4 reveal">Business Structure</div>
+      <h2 class="font-display font-700 text-4xl lg:text-5xl text-gs-50 reveal reveal-delay-1">
+        One Firm. Two Countries.<br/>
+        <span class="text-gradient">Zero Friction.</span>
+      </h2>
+      <p class="mt-4 font-body text-gs-300/60 max-w-lg mx-auto text-lg reveal reveal-delay-2">
+        A legal structure designed to give U.S. clients the confidence of a local Chicago partner with the economic power of Mexico's engineering talent.
+      </p>
+    </div>
+
+    <!-- Bridge Visual -->
+    <div class="relative reveal reveal-delay-1">
+      <div class="grid lg:grid-cols-3 items-center gap-6 lg:gap-0">
+
+        <!-- U.S. Side -->
+        <div class="rounded-2xl bg-gs-800/50 border border-gs-600/50 p-8 relative glow-green-sm card-hover">
+          <div class="absolute -top-3 left-6">
+            <span class="chip bg-gs-600/80 border border-gs-500/50 text-gs-300 text-[10px]">🇺🇸 Chicago, Illinois</span>
+          </div>
+          <div class="mt-4">
+            <div class="font-display font-700 text-2xl text-gs-50 mb-1">Legal Entity</div>
+            <div class="font-mono text-xs text-gs-500 tracking-wider mb-4">GREENSOFT LLC — U.S. REGISTERED</div>
+            <ul class="space-y-2 text-sm text-gs-300/65">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gs-500"></span>Contract & Billing</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gs-500"></span>Legal Compliance</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gs-500"></span>Sales & Partnerships</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gs-500"></span>U.S. Account Management</li>
+            </ul>
+            <div class="mt-5 pt-4 border-t border-gs-700/40 font-mono text-xs text-gs-400/50">Chicago, Illinois · USA</div>
+          </div>
+        </div>
+
+        <!-- Bridge SVG (desktop) -->
+        <div class="hidden lg:flex flex-col items-center justify-center px-4">
+          <div class="relative w-full">
+            <svg viewBox="0 0 200 80" class="w-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Main bridge line -->
+              <line x1="10" y1="40" x2="190" y2="40" stroke="#1a3a24" stroke-width="1"/>
+              <!-- Animated data flow -->
+              <line x1="10" y1="40" x2="190" y2="40" stroke="url(#bridgeGrad)" stroke-width="1.5" stroke-dasharray="20 10" class="bridge-dash"/>
+              <!-- Center node -->
+              <circle cx="100" cy="40" r="12" fill="#0c1f10" stroke="#2DD4C0" stroke-width="1.5"/>
+              <circle cx="100" cy="40" r="5" fill="#2DD4C0"/>
+              <!-- Arrows -->
+              <path d="M75 35l-8 5 8 5" stroke="#2DD4C0" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+              <path d="M125 35l8 5-8 5" stroke="#2DD4C0" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+              <!-- Label -->
+              <text x="100" y="20" text-anchor="middle" fill="#2DD4C0" font-size="7" font-family="JetBrains Mono,monospace" letter-spacing="1" opacity="0.7">NEARSHORE BRIDGE</text>
+              <defs>
+                <linearGradient id="bridgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#2DD4C0" stop-opacity="0"/>
+                  <stop offset="40%" stop-color="#2DD4C0" stop-opacity="0.8"/>
+                  <stop offset="60%" stop-color="#3EDB8A" stop-opacity="1"/>
+                  <stop offset="100%" stop-color="#2DD4C0" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="text-center font-mono text-[10px] text-gs-400/40 tracking-widest mt-1">CONTRACTS · IP · PAYMENTS</div>
+          </div>
+        </div>
+
+        <!-- Mobile bridge indicator -->
+        <div class="lg:hidden flex items-center justify-center gap-3 py-2">
+          <div class="h-px flex-1 bg-gradient-to-r from-transparent via-gs-500/50 to-transparent"></div>
+          <span class="font-mono text-[10px] text-gs-500 tracking-widest">NEARSHORE BRIDGE</span>
+          <div class="h-px flex-1 bg-gradient-to-r from-transparent via-gs-500/50 to-transparent"></div>
+        </div>
+
+        <!-- Mexico Side -->
+        <div class="rounded-2xl bg-gs-800/50 border border-gs-700/40 p-8 relative card-hover">
+          <div class="absolute -top-3 left-6">
+            <span class="chip bg-gs-700/80 border border-gs-600/40 text-gs-300 text-[10px]">🇲🇽 Leon, Mexico</span>
+          </div>
+          <div class="mt-4">
+            <div class="font-display font-700 text-2xl text-gs-50 mb-1">Operations Hub</div>
+            <div class="font-mono text-xs text-gs-400 tracking-wider mb-4">ENGINEERING & DELIVERY CENTER</div>
+            <ul class="space-y-2 text-sm text-gs-300/65">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gs-400"></span>Software Engineering</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gs-400"></span>QA & Testing Teams</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gs-400"></span>Talent Sourcing & Vetting</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gs-400"></span>Product Delivery</li>
+            </ul>
+            <div class="mt-5 pt-4 border-t border-gs-700/40 font-body text-xs text-gs-400/50">Leon, Guanajuato · Mexico</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom trust bar -->
+      <div class="mt-8 rounded-xl bg-gs-800/30 border border-gs-700/30 px-6 py-4 flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
+        <div class="flex items-center gap-2 text-sm text-gs-300/60">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.5 3 3.5.5-2.5 2.5.5 3.5L8 10l-3 1.5.5-3.5L3 5.5l3.5-.5L8 2z" stroke="#2DD4C0" stroke-width="1.2"/></svg>
+          U.S. Incorporated LLC
+        </div>
+        <div class="flex items-center gap-2 text-sm text-gs-300/60">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3" y="3" width="10" height="10" rx="2" stroke="#2DD4C0" stroke-width="1.2"/><path d="M5.5 8l2 2 3-3" stroke="#3EDB8A" stroke-width="1.2" stroke-linecap="round"/></svg>
+          USMCA Trade Agreement
+        </div>
+        <div class="flex items-center gap-2 text-sm text-gs-300/60">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="#2DD4C0" stroke-width="1.2"/><path d="M8 5.5V8l2 1.5" stroke="#3EDB8A" stroke-width="1.2" stroke-linecap="round"/></svg>
+          Real-time CST Collaboration
+        </div>
+        <div class="flex items-center gap-2 text-sm text-gs-300/60">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="#2DD4C0" stroke-width="1.2" stroke-linecap="round"/></svg>
+          Bilingual Team
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     PROCESS TIMELINE
+═══════════════════════════════════════════ -->
+<section id="process" class="py-24 lg:py-32 relative bg-gs-950/80">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gs-600/40 to-transparent"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <div class="section-label mb-4 reveal">How It Works</div>
+      <h2 class="font-display font-700 text-4xl lg:text-5xl text-gs-50 reveal reveal-delay-1">
+        From First Call to<br/>
+        <span class="text-gradient">Productive Engineer</span>
+      </h2>
+      <p class="mt-4 font-body text-gs-300/60 max-w-xl mx-auto reveal reveal-delay-2">
+        A streamlined process that respects your time and delivers results in days, not months.
+      </p>
+    </div>
+
+    <!-- Timeline steps -->
+    <div class="relative" id="timeline-container">
+      <!-- Vertical line (mobile) -->
+      <div class="absolute left-6 top-6 bottom-6 w-px bg-gradient-to-b from-gs-500/60 via-gs-600/30 to-transparent lg:hidden"></div>
+
+      <!-- Horizontal connector (desktop) — sits BEHIND circles (z-0 < z-10) -->
+      <div class="hidden lg:block absolute left-0 right-0 h-px z-0" style="top: 24px;">
+        <div id="timeline-line" class="h-full bg-gradient-to-r from-gs-500/60 via-gs-400/40 to-gs-600/20 origin-left scale-x-0 transition-all duration-1000 ease-out"></div>
+      </div>
+
+      <div class="grid lg:grid-cols-5 gap-6 relative z-10">
+        <!-- Step 1 -->
+        <div class="flex lg:flex-col gap-4 lg:gap-0 items-start reveal reveal-delay-1">
+          <div class="relative flex-shrink-0">
+            <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-gs-600/60 border border-gs-500/60 flex items-center justify-center dot-pulse relative z-10">
+              <span class="font-display font-700 text-gs-300 text-sm">01</span>
+            </div>
+          </div>
+          <div class="lg:mt-5 flex-1 min-w-0">
+            <div class="font-display font-600 text-gs-50 text-base mb-1.5">Discovery Call</div>
+            <p class="text-sm text-gs-300/55 leading-relaxed">30-minute scoping to understand your stack, team, and velocity goals.</p>
+            <div class="mt-2 chip bg-gs-700/30 border border-gs-700/40 text-gs-500 text-[10px]">Day 1</div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="flex lg:flex-col gap-4 lg:gap-0 items-start reveal reveal-delay-2">
+          <div class="relative flex-shrink-0">
+            <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-gs-700/50 border border-gs-600/40 flex items-center justify-center relative z-10">
+              <span class="font-display font-600 text-gs-400 text-sm">02</span>
+            </div>
+          </div>
+          <div class="lg:mt-5 flex-1 min-w-0">
+            <div class="font-display font-600 text-gs-50 text-base mb-1.5">Talent Matching</div>
+            <p class="text-sm text-gs-300/55 leading-relaxed">We surface pre-vetted candidates from our active pool within 48 hours.</p>
+            <div class="mt-2 chip bg-gs-700/30 border border-gs-700/40 text-gs-500 text-[10px]">Day 2–3</div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="flex lg:flex-col gap-4 lg:gap-0 items-start reveal reveal-delay-3">
+          <div class="relative flex-shrink-0">
+            <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-gs-700/50 border border-gs-600/40 flex items-center justify-center relative z-10">
+              <span class="font-display font-600 text-gs-400 text-sm">03</span>
+            </div>
+          </div>
+          <div class="lg:mt-5 flex-1 min-w-0">
+            <div class="font-display font-600 text-gs-50 text-base mb-1.5">Technical Interviews</div>
+            <p class="text-sm text-gs-300/55 leading-relaxed">Your team runs live technical rounds — we coordinate, translate, assess.</p>
+            <div class="mt-2 chip bg-gs-700/30 border border-gs-700/40 text-gs-500 text-[10px]">Day 4–7</div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="flex lg:flex-col gap-4 lg:gap-0 items-start reveal reveal-delay-4">
+          <div class="relative flex-shrink-0">
+            <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-gs-700/50 border border-gs-600/40 flex items-center justify-center relative z-10">
+              <span class="font-display font-600 text-gs-400 text-sm">04</span>
+            </div>
+          </div>
+          <div class="lg:mt-5 flex-1 min-w-0">
+            <div class="font-display font-600 text-gs-50 text-base mb-1.5">Contract & Onboarding</div>
+            <p class="text-sm text-gs-300/55 leading-relaxed">U.S. contract through our Chicago LLC. Payroll, benefits, compliance — handled.</p>
+            <div class="mt-2 chip bg-gs-700/30 border border-gs-700/40 text-gs-500 text-[10px]">Day 8–12</div>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="flex lg:flex-col gap-4 lg:gap-0 items-start reveal reveal-delay-5">
+          <div class="relative flex-shrink-0">
+            <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-gradient-to-br from-gs-500 to-gs-600 border border-gs-400/50 flex items-center justify-center relative z-10" style="box-shadow: 0 0 20px rgba(45,212,192,0.3)">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="#040c06" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+          <div class="lg:mt-5 flex-1 min-w-0">
+            <div class="font-display font-600 text-gs-50 text-base mb-1.5">Team Productive</div>
+            <p class="text-sm text-gs-300/55 leading-relaxed">Engineer embedded in your team, shipping code on day one in CST.</p>
+            <div class="mt-2 chip bg-gs-600/30 border border-gs-500/40 text-gs-400 text-[10px]">Day 14</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SOCIAL PROOF / TRUST
+═══════════════════════════════════════════ -->
+<section class="py-16 relative overflow-hidden" style="background:#000;">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gs-700/40 to-transparent"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-12 reveal">
+      <span class="section-label">Trusted by Engineering Leaders</span>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5">
+      <!-- Quote 1 -->
+      <div class="rounded-xl bg-gs-800/40 border border-gs-700/30 p-6 reveal reveal-delay-1 card-hover">
+        <div class="flex gap-1 mb-4">
+          <svg class="w-4 h-4 text-amber-400" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.4l-3.6 1.9.7-4L2.2 5.7l4-.6L8 1.5z"/></svg>
+          <svg class="w-4 h-4 text-amber-400" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.4l-3.6 1.9.7-4L2.2 5.7l4-.6L8 1.5z"/></svg>
+          <svg class="w-4 h-4 text-amber-400" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.4l-3.6 1.9.7-4L2.2 5.7l4-.6L8 1.5z"/></svg>
+          <svg class="w-4 h-4 text-amber-400" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.4l-3.6 1.9.7-4L2.2 5.7l4-.6L8 1.5z"/></svg>
+          <svg class="w-4 h-4 text-amber-400" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.4l-3.6 1.9.7-4L2.2 5.7l4-.6L8 1.5z"/></svg>
+        </div>
+        <p class="text-sm text-gs-300/70 leading-relaxed mb-5 italic">"We scaled our QA team from 2 to 8 engineers in three weeks. The timezone alignment was a game-changer — daily standups at 9am CST, no exceptions."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-gs-600/60 border border-gs-500/30 flex items-center justify-center font-display font-700 text-xs text-gs-300">MR</div>
+          <div>
+            <div class="font-display font-600 text-sm text-gs-200">Michael R.</div>
+            <div class="font-mono text-[11px] text-gs-400/50">VP Engineering · Chicago FinTech</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quote 2 -->
+      <div class="rounded-xl bg-gs-800/40 border border-gs-700/30 p-6 reveal reveal-delay-2 card-hover">
+        <div class="flex gap-1 mb-4">
+          <svg class="w-4 h-4 text-amber-400" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.4l-3.6 1.9.7-4L2.2 5.7l4-.6L8 1.5z"/></svg>
+          <svg class="w-4 h-4 text-amber-400" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.4l-3.6 1.9.7-4L2.2 5.7l4-.6L8 1.5z"/></svg>
+          <svg class="w-4 h-4 text-amber-400" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.4l-3.6 1.9.7-4L2.2 5.7l4-.6L8 1.5z"/></svg>
+          <svg class="w-4 h-4 text-amber-400" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.4l-3.6 1.9.7-4L2.2 5.7l4-.6L8 1.5z"/></svg>
+          <svg class="w-4 h-4 text-amber-400" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.4l-3.6 1.9.7-4L2.2 5.7l4-.6L8 1.5z"/></svg>
+        </div>
+        <p class="text-sm text-gs-300/70 leading-relaxed mb-5 italic">"The Chicago LLC contract structure made our legal team very comfortable. We got the savings of nearshore without any of the procurement complexity we feared."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-gs-600/60 border border-gs-500/30 flex items-center justify-center font-display font-700 text-xs text-gs-300">SL</div>
+          <div>
+            <div class="font-display font-600 text-sm text-gs-200">Sarah L.</div>
+            <div class="font-mono text-[11px] text-gs-400/50">CTO · B2B SaaS · Midwest</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quote 3 -->
+      <div class="rounded-xl bg-gs-800/40 border border-gs-700/30 p-6 reveal reveal-delay-3 card-hover">
+        <div class="flex gap-1 mb-4">
+          <svg class="w-4 h-4 text-amber-400" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.4l-3.6 1.9.7-4L2.2 5.7l4-.6L8 1.5z"/></svg>
+          <svg class="w-4 h-4 text-amber-400" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.4l-3.6 1.9.7-4L2.2 5.7l4-.6L8 1.5z"/></svg>
+          <svg class="w-4 h-4 text-amber-400" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.4l-3.6 1.9.7-4L2.2 5.7l4-.6L8 1.5z"/></svg>
+          <svg class="w-4 h-4 text-amber-400" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.4l-3.6 1.9.7-4L2.2 5.7l4-.6L8 1.5z"/></svg>
+          <svg class="w-4 h-4 text-amber-400" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.8 3.6 4 .6-2.9 2.8.7 4L8 10.4l-3.6 1.9.7-4L2.2 5.7l4-.6L8 1.5z"/></svg>
+        </div>
+        <p class="text-sm text-gs-300/70 leading-relaxed mb-5 italic">"Greensoft found us two senior backend engineers who spoke fluent English, knew React Native cold, and joined standups at 9am sharp. Couldn't tell they were in Mexico."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-gs-600/60 border border-gs-500/30 flex items-center justify-center font-display font-700 text-xs text-gs-300">DK</div>
+          <div>
+            <div class="font-display font-600 text-sm text-gs-200">Daniel K.</div>
+            <div class="font-mono text-[11px] text-gs-400/50">Engineering Director · Healthcare Tech</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     CONTACT / LEAD GEN
+═══════════════════════════════════════════ -->
+<section id="contact" class="py-24 lg:py-32 relative overflow-hidden">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gs-500/40 to-transparent"></div>
+  <div class="absolute inset-0 bg-gradient-to-br from-gs-800/20 via-transparent to-gs-900/40"></div>
+
+  <!-- Background orb -->
+  <div class="absolute top-1/2 right-0 w-96 h-96 rounded-full bg-gs-600/8 blur-[140px] pointer-events-none -translate-y-1/2"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+      <!-- Left: Copy -->
+      <div>
+        <div class="section-label mb-4 reveal">Get Started</div>
+        <h2 class="font-display font-700 text-4xl lg:text-5xl text-gs-50 leading-tight mb-6 reveal reveal-delay-1">
+          Your Next Engineering<br/>
+          Hire is <span class="text-gradient">48 Hours Away.</span>
+        </h2>
+        <p class="font-body text-lg text-gs-300/65 leading-relaxed mb-8 reveal reveal-delay-2">
+          Tell us about your engineering challenge. We'll respond within one business day with a tailored plan — whether you need a single engineer or a full QA squad.
+        </p>
+
+        <!-- Contact info blocks -->
+        <div class="space-y-4 reveal reveal-delay-3">
+          <div class="flex items-start gap-4 p-4 rounded-xl bg-gs-800/30 border border-gs-700/30">
+            <div class="w-10 h-10 rounded-lg bg-gs-700/50 border border-gs-600/30 flex items-center justify-center flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 5l6 5 6-5" stroke="#2DD4C0" stroke-width="1.2" stroke-linecap="round"/><rect x="2" y="3.5" width="14" height="11" rx="2" stroke="#2DD4C0" stroke-width="1.2"/></svg>
+            </div>
+            <div>
+              <div class="font-display font-600 text-sm text-gs-200">Email Us</div>
+              <div class="font-mono text-sm text-gs-400 mt-0.5">hello@greensofttech.com</div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 rounded-xl bg-gs-800/30 border border-gs-700/30">
+            <div class="w-10 h-10 rounded-lg bg-gs-700/50 border border-gs-600/30 flex items-center justify-center flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 4a1 1 0 011-1h8a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" stroke="#2DD4C0" stroke-width="1.2"/><path d="M7 8h4M7 11h2.5" stroke="#3EDB8A" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="font-display font-600 text-sm text-gs-200">Chicago Office</div>
+              <div class="font-mono text-sm text-gs-400 mt-0.5">Chicago, Illinois · USA</div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 rounded-xl bg-gs-800/30 border border-gs-700/30">
+            <div class="w-10 h-10 rounded-lg bg-gs-700/50 border border-gs-600/30 flex items-center justify-center flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6" stroke="#2DD4C0" stroke-width="1.2"/><path d="M9 6v3l2 2" stroke="#3EDB8A" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="font-display font-600 text-sm text-gs-200">Response Time</div>
+              <div class="font-mono text-sm text-gs-400 mt-0.5">&lt; 1 business day · Mon–Fri CST</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="rounded-2xl bg-gs-800/50 border border-gs-700/40 p-8 reveal reveal-delay-2" style="backdrop-filter: blur(12px);">
+        <div class="mb-6">
+          <h3 class="font-display font-700 text-xl text-gs-50 mb-1">Request a Consultation</h3>
+          <p class="text-sm text-gs-300/50">No commitment. We'll scope your needs and send a proposal.</p>
+        </div>
+
+        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block font-mono text-[11px] text-gs-400/60 tracking-wider mb-1.5">FIRST NAME</label>
+              <input type="text" class="gs-input" placeholder="Alex" required />
+            </div>
+            <div>
+              <label class="block font-mono text-[11px] text-gs-400/60 tracking-wider mb-1.5">LAST NAME</label>
+              <input type="text" class="gs-input" placeholder="Johnson" required />
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-mono text-[11px] text-gs-400/60 tracking-wider mb-1.5">WORK EMAIL</label>
+            <input type="email" class="gs-input" placeholder="alex@company.com" required />
+          </div>
+
+          <div>
+            <label class="block font-mono text-[11px] text-gs-400/60 tracking-wider mb-1.5">COMPANY</label>
+            <input type="text" class="gs-input" placeholder="Acme Corp" />
+          </div>
+
+          <div>
+            <label class="block font-mono text-[11px] text-gs-400/60 tracking-wider mb-1.5">YOUR ROLE</label>
+            <select class="gs-input">
+              <option value="">Select your role…</option>
+              <option>CTO / VP Engineering</option>
+              <option>Engineering Manager</option>
+              <option>HR Director / Talent Acquisition</option>
+              <option>Founder / CEO</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block font-mono text-[11px] text-gs-400/60 tracking-wider mb-1.5">I'M INTERESTED IN</label>
+            <select class="gs-input">
+              <option value="">Select service…</option>
+              <option>Tech Recruitment — Hire Engineers</option>
+              <option>QA Consulting — Software Quality</option>
+              <option>Both Services</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block font-mono text-[11px] text-gs-400/60 tracking-wider mb-1.5">HOW CAN WE HELP?</label>
+            <textarea class="gs-input" rows="3" placeholder="Briefly describe your engineering challenge or hiring needs…" style="resize: vertical;"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary w-full text-base py-3.5">
+            Send Request
+            <svg class="inline ml-2 w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+
+          <p class="text-center font-mono text-[10px] text-gs-400/35 tracking-wider">
+            No spam. No commitments. Just a conversation.
+          </p>
+        </form>
+
+        <!-- Success message (hidden) -->
+        <div id="form-success" class="hidden text-center py-8">
+          <div class="w-14 h-14 rounded-full bg-gs-600/40 border border-gs-500/50 flex items-center justify-center mx-auto mb-4">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="#3EDB8A" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h4 class="font-display font-700 text-xl text-gs-50 mb-2">Request Received!</h4>
+          <p class="text-sm text-gs-300/60">We'll be in touch within one business day. Keep an eye on your inbox.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer class="border-t border-gs-800/60 py-12 lg:py-16" style="background:#000;">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid md:grid-cols-4 gap-10 mb-12">
+      <!-- Brand -->
+      <div class="md:col-span-2">
+        <a href="#" class="flex items-center gap-3 mb-4">
+          <img src="icononly_transparent_nobuffer.png" alt="Greensoft" class="w-9 h-9 object-contain" />
+          <span class="font-display font-700 text-gs-50 text-lg">Greensoft</span>
+        </a>
+        <p class="text-sm text-gs-300/50 leading-relaxed max-w-xs">
+          Chicago-based nearshore engineering firm connecting U.S. companies with Mexico's top tech talent.
+        </p>
+        <div class="flex gap-3 mt-5">
+          <a href="https://www.facebook.com/profile.php?id=100084969415524" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-gs-800/60 border border-gs-700/40 flex items-center justify-center hover:border-gs-500/60 hover:bg-gs-700/50 transition-all duration-200" aria-label="Facebook">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="#7EEAC4"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h7v-7h-2v-3h2V9.5A3.5 3.5 0 0115.5 6H18v3h-2c-.6 0-1 .4-1 1v2h3l-.5 3H15v7h4a2 2 0 002-2V5a2 2 0 00-2-2z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/greensoft.mx/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-gs-800/60 border border-gs-700/40 flex items-center justify-center hover:border-gs-500/60 hover:bg-gs-700/50 transition-all duration-200" aria-label="Instagram">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7EEAC4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#7EEAC4" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <div class="font-mono text-[11px] text-gs-500/70 tracking-widest mb-4">SERVICES</div>
+        <ul class="space-y-2.5">
+          <li><a href="#services" class="text-sm text-gs-300/55 hover:text-gs-300 transition-colors">Tech Recruitment</a></li>
+          <li><a href="#services" class="text-sm text-gs-300/55 hover:text-gs-300 transition-colors">QA Consulting</a></li>
+          <li><a href="#advantage" class="text-sm text-gs-300/55 hover:text-gs-300 transition-colors">Nearshore Model</a></li>
+          <li><a href="#process" class="text-sm text-gs-300/55 hover:text-gs-300 transition-colors">Our Process</a></li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <div class="font-mono text-[11px] text-gs-500/70 tracking-widest mb-4">COMPANY</div>
+        <ul class="space-y-2.5">
+          <li><a href="#structure" class="text-sm text-gs-300/55 hover:text-gs-300 transition-colors">Business Structure</a></li>
+          <li><a href="#contact" class="text-sm text-gs-300/55 hover:text-gs-300 transition-colors">Contact Us</a></li>
+          <li><span class="text-sm text-gs-300/55">Chicago, Illinois · USA</span></li>
+          <li><span class="text-sm text-gs-300/55">Leon, Guanajuato · Mexico</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="pt-8 border-t border-gs-800/50 flex flex-wrap items-center justify-between gap-4">
+      <div class="font-mono text-xs text-gs-400/30 tracking-wider">
+        © 2026 Greensoft Consulting & Recruitment LLC. All rights reserved.
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-gs-500 animate-pulse"></span>
+        <span class="font-mono text-xs text-gs-400/40 tracking-widest">CHICAGO, IL · LEÓN, MX</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════ -->
+<script>
+  // ── Navbar scroll behavior ──
+  const navbar = document.getElementById('navbar');
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y > 40) {
+      navbar.classList.add('nav-blur', 'bg-gs-900/80', 'border-b', 'border-gs-800/50');
+    } else {
+      navbar.classList.remove('nav-blur', 'bg-gs-900/80', 'border-b', 'border-gs-800/50');
+    }
+    lastScroll = y;
+  });
+
+  // ── Mobile nav toggle ──
+  const navToggle = document.getElementById('nav-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('nav-icon-open');
+  const iconClose = document.getElementById('nav-icon-close');
+  navToggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    iconOpen.classList.toggle('hidden', isOpen);
+    iconClose.classList.toggle('hidden', !isOpen);
+  });
+  // Close on link click
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    iconOpen.classList.remove('hidden');
+    iconClose.classList.add('hidden');
+  }));
+
+  // ── Intersection Observer for reveal animations ──
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('revealed');
+        revealObs.unobserve(el.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // ── Stat bar animation ──
+  const barObs = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.querySelectorAll('.stat-bar-fill').forEach(bar => {
+          bar.classList.add('animate');
+        });
+        barObs.unobserve(el.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.stat-bar').forEach(el => barObs.observe(el));
+
+  // ── Counter animation ──
+  function animateCounter(el, target, duration = 2000) {
+    const start = performance.now();
+    const update = (now) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      const current = Math.round(ease * target);
+      el.textContent = current;
+      if (progress < 1) requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+  }
+
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.counter-stat').forEach(el => {
+          const target = parseInt(el.dataset.target);
+          animateCounter(el, target, 1800);
+        });
+        counterObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  const heroStats = document.querySelector('#hero .grid');
+  if (heroStats) counterObs.observe(heroStats);
+
+  // ── Timeline line animation ──
+  const timelineLine = document.getElementById('timeline-line');
+  const timelineObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && timelineLine) {
+        timelineLine.style.transition = 'transform 1.5s cubic-bezier(0.22,1,0.36,1)';
+        timelineLine.style.transform = 'scaleX(1)';
+        timelineObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  const timelineContainer = document.getElementById('timeline-container');
+  if (timelineContainer) timelineObs.observe(timelineContainer);
+
+  // ── Smooth scroll for anchor links ──
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ── Form submit handler ──
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
+    form.style.opacity = '0';
+    form.style.transition = 'opacity 0.3s ease';
+    setTimeout(() => {
+      form.style.display = 'none';
+      success.classList.remove('hidden');
+      success.style.opacity = '0';
+      success.style.transition = 'opacity 0.5s ease';
+      setTimeout(() => { success.style.opacity = '1'; }, 50);
+    }, 300);
+  }
+
+  // ── Hero entrance on load ──
+  window.addEventListener('load', () => {
+    document.querySelectorAll('#hero .reveal').forEach((el, i) => {
+      setTimeout(() => el.classList.add('revealed'), 100 + i * 150);
+    });
+  });
+</script>
+
+</body>
+</html>
