@@ -402,6 +402,10 @@
       filter: grayscale(0) brightness(1) opacity(1);
     }
   </style>
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init("MWSYU42vefKZT8_kK");</script>
 </head>
 
 <body>
@@ -1296,27 +1300,27 @@
           <div class="grid grid-cols-2 gap-4">
             <div>
               <label class="block font-mono text-[11px] text-gs-400/60 tracking-wider mb-1.5">FIRST NAME</label>
-              <input type="text" class="gs-input" placeholder="Alex" required />
+              <input id="contact-first-name" type="text" class="gs-input" placeholder="Alex" required />
             </div>
             <div>
               <label class="block font-mono text-[11px] text-gs-400/60 tracking-wider mb-1.5">LAST NAME</label>
-              <input type="text" class="gs-input" placeholder="Johnson" required />
+              <input id="contact-last-name" type="text" class="gs-input" placeholder="Johnson" required />
             </div>
           </div>
 
           <div>
             <label class="block font-mono text-[11px] text-gs-400/60 tracking-wider mb-1.5">WORK EMAIL</label>
-            <input type="email" class="gs-input" placeholder="alex@company.com" required />
+            <input id="contact-email" type="email" class="gs-input" placeholder="alex@company.com" required />
           </div>
 
           <div>
             <label class="block font-mono text-[11px] text-gs-400/60 tracking-wider mb-1.5">COMPANY</label>
-            <input type="text" class="gs-input" placeholder="Acme Corp" />
+            <input id="contact-company" type="text" class="gs-input" placeholder="Acme Corp" />
           </div>
 
           <div>
             <label class="block font-mono text-[11px] text-gs-400/60 tracking-wider mb-1.5">YOUR ROLE</label>
-            <select class="gs-input">
+            <select id="contact-role" class="gs-input">
               <option value="">Select your role…</option>
               <option>CTO / VP Engineering</option>
               <option>Engineering Manager</option>
@@ -1328,7 +1332,7 @@
 
           <div>
             <label class="block font-mono text-[11px] text-gs-400/60 tracking-wider mb-1.5">I'M INTERESTED IN</label>
-            <select class="gs-input">
+            <select id="contact-service" class="gs-input">
               <option value="">Select service…</option>
               <option>Tech Recruitment — Hire Engineers</option>
               <option>QA Consulting — Software Quality</option>
@@ -1338,7 +1342,7 @@
 
           <div>
             <label class="block font-mono text-[11px] text-gs-400/60 tracking-wider mb-1.5">HOW CAN WE HELP?</label>
-            <textarea class="gs-input" rows="3" placeholder="Briefly describe your engineering challenge or hiring needs…" style="resize: vertical;"></textarea>
+            <textarea id="contact-message" class="gs-input" rows="3" placeholder="Briefly describe your engineering challenge or hiring needs…" style="resize: vertical;"></textarea>
           </div>
 
           <button type="submit" class="btn-primary w-full text-base py-3.5">
@@ -1544,15 +1548,41 @@
     e.preventDefault();
     const form = document.getElementById('contact-form');
     const success = document.getElementById('form-success');
-    form.style.opacity = '0';
-    form.style.transition = 'opacity 0.3s ease';
-    setTimeout(() => {
-      form.style.display = 'none';
-      success.classList.remove('hidden');
-      success.style.opacity = '0';
-      success.style.transition = 'opacity 0.5s ease';
-      setTimeout(() => { success.style.opacity = '1'; }, 50);
-    }, 300);
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnHTML = submitBtn.innerHTML;
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Sending…';
+
+    const firstName = document.getElementById('contact-first-name').value.trim();
+    const lastName = document.getElementById('contact-last-name').value.trim();
+    const params = {
+      from_name: (firstName + ' ' + lastName).trim(),
+      from_email: document.getElementById('contact-email').value.trim(),
+      company: document.getElementById('contact-company').value.trim(),
+      role: document.getElementById('contact-role').value,
+      service: document.getElementById('contact-service').value,
+      message: document.getElementById('contact-message').value.trim()
+    };
+
+    emailjs.send('service_wdguxoq', 'template_pjpxt7d', params)
+      .then(() => {
+        form.style.opacity = '0';
+        form.style.transition = 'opacity 0.3s ease';
+        setTimeout(() => {
+          form.style.display = 'none';
+          success.classList.remove('hidden');
+          success.style.opacity = '0';
+          success.style.transition = 'opacity 0.5s ease';
+          setTimeout(() => { success.style.opacity = '1'; }, 50);
+        }, 300);
+      })
+      .catch((err) => {
+        console.error('EmailJS error:', err);
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnHTML;
+        alert("Sorry, we couldn't send your message right now. Please email us directly at contact@greensofts.org.");
+      });
   }
 
   // ── Hero entrance on load ──
